@@ -1,4 +1,4 @@
-FROM ruby:2.5.1
+FROM ruby:3.1.3
 
 #必要なパッケージのインストール
 RUN apt-get update -qq && \
@@ -7,10 +7,10 @@ RUN apt-get update -qq && \
                        nodejs
 
 #作業ディレクトリの設定
-RUN mkdir /todo_app
+RUN mkdir /todo
 
 #作業ディレクトリをAPP_ROOTに割り当てて、以下$APP_ROOTで参照
-ENV mkdir /todo_app
+ENV APP_ROOT /todo_app
 WORKDIR $APP_ROOT
 
 #ホスト側(ローカル)のGemfileを追加する
